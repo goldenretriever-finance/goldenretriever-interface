@@ -1,0 +1,30 @@
+name: Deploy development environment
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, goldenretriever-dev-2]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Setup Node
+        uses: actions/setup-node@v2.1.2
+        with:
+          node-version: 12.16
+      - name: Install dependencies
+        run: yarn install
+      - name: Run build
+        run: yarn build
+      - name: Replace code
+        env:
+          PW: ${{ secrets.YAMASHITA_PW }}
+        run: echo $PW | sudo -S rm -rf /var/www/goldenretriever-interface; echo $PW | sudo -S cp -rp ./ /var/www/goldenretriever-interface
+      - name: Service nginx restart
+        env:
+          PW: ${{ secrets.YAMASHITA_PW }}
+        run: echo $PW | sudo -S systemctl restart nginx
