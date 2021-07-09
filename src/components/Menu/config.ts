@@ -26,10 +26,6 @@ const MenuItemList: MenuItem[] = [
     label: 'Pools',
     href: `${BASE_URL}/pools`,
   },
-  {
-    label: 'Info',
-    href: '/info',
-  },
 ]
 
 export default MenuItemList

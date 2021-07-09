@@ -122,7 +122,7 @@ const Menu: React.FC = ({ children }) => {
             :
             (<Link to={item.href} className={location.pathname === item.href ? 'active' : ''} >{item.label}</Link>)
           )}
-        <a href="/#" className="github">
+        <a href="https://github.com/goldenretriever-finance/goldenretriever-interface" className="github">
           <img src="/images/mark-github.png" alt="github"/>
         </a>
       </NavList>
@@ -132,9 +132,6 @@ const Menu: React.FC = ({ children }) => {
         ) : (
           <StyledButton onClick={() => handleCtaClick()}>Connect</StyledButton>
         )}
-        <a href="/profile" className="profile">
-          <img src="/images/header-profile.png" alt="profile"/>
-        </a>
       </div>
     </Nav>
   {children}
