@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { useWeb3React } from '@web3-react/core'
-import {useWalletModal} from '@pancakeswap/uikit'
+import {useWalletModal} from '@pancakeswap-libs/uikit'
 import {useLocation, Link} from "react-router-dom";
 import { LanguageContext } from 'hooks/LanguageContext'
 import useTheme from 'hooks/useTheme'
