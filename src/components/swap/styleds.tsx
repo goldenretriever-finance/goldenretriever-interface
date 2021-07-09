@@ -7,6 +7,7 @@ import { AutoColumn } from '../Column'
 
 export const Wrapper = styled.div`
   position: relative;
+  width: 434px;
 `
 
 export const ArrowWrapper = styled.div<{ clickable: boolean }>`
@@ -21,6 +22,9 @@ export const ArrowWrapper = styled.div<{ clickable: boolean }>`
           }
         `
       : null}
+  button {
+    background-color: transparent;
+  }
 `
 
 export const SectionBreak = styled.div`

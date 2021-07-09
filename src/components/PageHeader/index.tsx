@@ -12,8 +12,8 @@ interface PageHeaderProps {
 }
 
 const StyledPageHeader = styled.div`
-  border-bottom: 1px solid ${({ theme }) => theme.colors.borderColor};
   padding: 24px;
+  background: #1B123E;
 `
 
 const Details = styled.div`
@@ -29,22 +29,22 @@ const PageHeader = ({ title, description, children }: PageHeaderProps) => {
     <StyledPageHeader>
       <Flex alignItems="center">
         <Details>
-          <Heading mb="8px">{title}</Heading>
+          <Heading color="white" mb="8px">{title}</Heading>
           {description && (
-            <Text color="textSubtle" fontSize="14px">
+            <Text color="white" fontSize="14px">
               {description}
             </Text>
           )}
         </Details>
         <IconButton variant="text" onClick={onPresentSettings} title={TranslateString(1200, 'Settings')}>
-          <TuneIcon width="24px" color="currentColor" />
+          <TuneIcon width="24px" color="white" />
         </IconButton>
         <IconButton
           variant="text"
           onClick={onPresentRecentTransactions}
           title={TranslateString(1202, 'Recent transactions')}
         >
-          <HistoryIcon width="24px" color="currentColor" />
+          <HistoryIcon width="24px" color="white" />
         </IconButton>
       </Flex>
       {children && <Text mt="16px">{children}</Text>}
