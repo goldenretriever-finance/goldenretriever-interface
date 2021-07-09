@@ -1,5 +1,5 @@
-import React, { useContext, useMemo } from 'react'
-import { ThemeContext } from 'styled-components'
+import React, { useMemo } from 'react'
+import styled from 'styled-components'
 import { Pair } from '@pancakeswap-libs/sdk'
 import { Button, CardBody, Text } from '@pancakeswap-libs/uikit'
 import { Link } from 'react-router-dom'
@@ -20,8 +20,25 @@ import useI18n from 'hooks/useI18n'
 import PageHeader from 'components/PageHeader'
 import AppBody from '../AppBody'
 
+const ButtonWrapper = styled.div`
+  background: linear-gradient( 94.17deg ,#0947e7 0%,#cf00f0 73.96%);
+  padding: 2px;
+  border-radius: 6px;
+  a {
+    width: 100%;
+    height: 46px;
+    color: white;
+    font-size: 13px;
+    background: #000000;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 6px;
+    border: 2px;
+    border-image-slice: 1;
+    border-image: linear-gradient(94.17deg, #0947e7 0%, #cf00f0 73.96%);
+  }
+`
+
 export default function Pool() {
-  const theme = useContext(ThemeContext)
   const { account } = useActiveWeb3React()
   const TranslateString = useI18n()
 
@@ -62,15 +79,17 @@ export default function Pool() {
           title={TranslateString(262, 'Liquidity')}
           description={TranslateString(1168, 'Add liquidity to receive LP tokens')}
         >
-          <Button id="join-pool-button" as={Link} to="/add/BNB">
-            {TranslateString(168, 'Add Liquidity')}
-          </Button>
+          <ButtonWrapper>
+            <Button color="white" id="join-pool-button" as={Link} to="/add/BNB">
+              {TranslateString(168, 'Add Liquidity')}
+            </Button>
+          </ButtonWrapper>
         </PageHeader>
         <AutoColumn gap="lg" justify="center">
           <CardBody>
             <AutoColumn gap="12px" style={{ width: '100%' }}>
               <RowBetween padding="0 8px">
-                <Text color={theme.colors.text}>{TranslateString(107, 'Your Liquidity')}</Text>
+                <Text color="white">{TranslateString(107, 'Your Liquidity')}</Text>
                 <Question
                   text={TranslateString(
                     1170,
@@ -81,13 +100,13 @@ export default function Pool() {
 
               {!account ? (
                 <LightCard padding="40px">
-                  <Text color="textDisabled" textAlign="center">
+                  <Text color="white" textAlign="center">
                     {TranslateString(156, 'Connect to a wallet to view your liquidity.')}
                   </Text>
                 </LightCard>
               ) : v2IsLoading ? (
                 <LightCard padding="40px">
-                  <Text color="textDisabled" textAlign="center">
+                  <Text color="white" textAlign="center">
                     <Dots>Loading</Dots>
                   </Text>
                 </LightCard>
@@ -99,20 +118,20 @@ export default function Pool() {
                 </>
               ) : (
                 <LightCard padding="40px">
-                  <Text color="textDisabled" textAlign="center">
+                  <Text color="white" textAlign="center">
                     {TranslateString(104, 'No liquidity found.')}
                   </Text>
                 </LightCard>
               )}
 
               <div>
-                <Text fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>
+                <Text color="white" fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>
                   {TranslateString(106, "Don't see a pool you joined?")}{' '}
                   <StyledInternalLink id="import-pool-link" to="/find">
                     {TranslateString(108, 'Import it.')}
                   </StyledInternalLink>
                 </Text>
-                <Text fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>
+                <Text color="white" fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>
                   {TranslateString(1172, 'Or, if you staked your LP tokens in a farm, unstake them to see them here.')}
                 </Text>
               </div>

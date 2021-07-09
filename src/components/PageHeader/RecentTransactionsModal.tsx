@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react'
 import { CheckmarkCircleIcon, ErrorIcon, Flex, LinkExternal, Text, Modal, Button } from '@pancakeswap-libs/uikit'
+import styled from "styled-components";
 import { useActiveWeb3React } from 'hooks'
 import { getBscScanLink } from 'utils'
 import { isTransactionRecent, useAllTransactions } from 'state/transactions/hooks'
@@ -10,6 +11,17 @@ type RecentTransactionsModalProps = {
   onDismiss?: () => void
   translateString: (translationId: number, fallback: string) => string
 }
+
+const GRModal = styled(Modal)`
+  border-radius: 6px;
+  svg {
+    fill: #CF00F0;
+  }
+`
+
+const GRButton = styled(Button)`
+  color: #CF00F0;
+`
 
 // TODO: Fix UI Kit typings
 const defaultOnDismiss = () => null
@@ -41,15 +53,15 @@ const RecentTransactionsModal = ({ onDismiss = defaultOnDismiss, translateString
   }, [allTransactions])
 
   return (
-    <Modal title={translateString(1202, 'Recent transactions')} onDismiss={onDismiss}>
+    <GRModal title={translateString(1202, 'Recent transactions')} onDismiss={onDismiss}>
       {!account && (
         <Flex justifyContent="center" flexDirection="column" alignItems="center">
           <Text mb="8px" bold>
             Please connect your wallet to view your recent transactions
           </Text>
-          <Button variant="tertiary" scale="sm" onClick={onDismiss}>
+          <GRButton variant="tertiary" scale="sm" onClick={onDismiss}>
             Close
-          </Button>
+          </GRButton>
         </Flex>
       )}
       {account && chainId && sortedRecentTransactions.length === 0 && (
@@ -57,9 +69,9 @@ const RecentTransactionsModal = ({ onDismiss = defaultOnDismiss, translateString
           <Text mb="8px" bold>
             No recent transactions
           </Text>
-          <Button variant="tertiary" scale="sm" onClick={onDismiss}>
+          <GRButton variant="tertiary" scale="sm" onClick={onDismiss}>
             Close
-          </Button>
+          </GRButton>
         </Flex>
       )}
       {account &&
@@ -79,7 +91,7 @@ const RecentTransactionsModal = ({ onDismiss = defaultOnDismiss, translateString
             </>
           )
         })}
-    </Modal>
+    </GRModal>
   )
 }
 

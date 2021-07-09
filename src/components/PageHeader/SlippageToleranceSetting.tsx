@@ -30,6 +30,14 @@ const Options = styled.div`
   }
 `
 
+const PrimaryButton = styled(Button)`
+  background-color: #CF00F0;
+`
+
+const TertiaryButton = styled(Button)`
+  color: #CF00F0;
+`
+
 const predefinedValues = [
   { label: '0.1%', value: 0.1 },
   { label: '0.5%', value: 0.5 },
@@ -91,9 +99,15 @@ const SlippageToleranceSettings = ({ translateString }: SlippageToleranceSetting
 
             return (
               <Option key={predefinedValue}>
-                <Button variant={value === predefinedValue ? 'primary' : 'tertiary'} onClick={handleClick}>
-                  {label}
-                </Button>
+                {value === predefinedValue ? (
+                  <PrimaryButton variant="primary" onClick={handleClick}>
+                {label}
+                  </PrimaryButton>
+                  ) :(
+                  <TertiaryButton variant="tertiary" onClick={handleClick}>
+                    {label}
+                  </TertiaryButton>
+                  )}
               </Option>
             )
           })}
