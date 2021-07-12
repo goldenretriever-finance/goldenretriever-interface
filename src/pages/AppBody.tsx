@@ -13,6 +13,10 @@ export const BodyWrapper = styled(Card)`
           , #023BCF 0%, #9600AE 73.96%);
   box-shadow: 0px 0px 30px rgb(0 0 0 / 15%);
   padding: 1px;
+
+  > div {
+    width: 100%;
+  }
 `
 
 /**
