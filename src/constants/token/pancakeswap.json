@@ -19,6 +19,30 @@
       "logoURI": "https://exchange.pancakeswap.finance/images/coins/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png"
     },
     {
+      "name": "WBNB Token",
+      "symbol": "WBNB",
+      "address": "0xdaB9b5be023365825609495a6AE0e1C353cE587C",
+      "chainId": 97,
+      "decimals": 18,
+      "logoURI": "https://exchange.pancakeswap.finance/images/coins/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png"
+    },
+    {
+      "name": "GoldenRetriever",
+      "symbol": "INU",
+      "address": "0x40C5B636E3a51CDda8300f7edcF89f58cd2cF250",
+      "chainId": 97,
+      "decimals": 18,
+      "logoURI": "https://goldenretriever-finance.com/images/dog.png"
+    },
+    {
+      "name": "OK TOKEN",
+      "symbol": "OK",
+      "address": "0x3E4B442Fdf47318F269ebcbe659F181271439aDB",
+      "chainId": 97,
+      "decimals": 18,
+      "logoURI": "https://exchange.pancakeswap.finance/images/coins/0xe02df9e3e622debdd69fb838bb799e3f168902c5.png"
+    },
+    {
       "name": "Bakery Token",
       "symbol": "BAKE",
       "address": "0xe02df9e3e622debdd69fb838bb799e3f168902c5",
