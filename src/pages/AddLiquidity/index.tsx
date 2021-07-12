@@ -318,11 +318,11 @@ export default function AddLiquidity({
                 <ColumnCenter>
                   <Pane>
                     <AutoColumn gap="12px">
-                      <UIKitText>{TranslateString(1158, 'You are the first liquidity provider.')}</UIKitText>
-                      <UIKitText>
+                      <UIKitText color="white">{TranslateString(1158, 'You are the first liquidity provider.')}</UIKitText>
+                      <UIKitText color="white">
                         {TranslateString(1160, 'The ratio of tokens you add will set the price of this pool.')}
                       </UIKitText>
-                      <UIKitText>
+                      <UIKitText color="white">
                         {TranslateString(1162, 'Once you are happy with the rate click supply to review.')}
                       </UIKitText>
                     </AutoColumn>
@@ -360,7 +360,7 @@ export default function AddLiquidity({
                 <div>
                   <UIKitText
                     style={{ textTransform: 'uppercase', fontWeight: 600 }}
-                    color="textSubtle"
+                    color="white"
                     fontSize="12px"
                     mb="2px"
                   >

@@ -94,7 +94,7 @@ export function AdvancedSwapDetails({ trade }: AdvancedSwapDetailsProps) {
               <SectionBreak />
               <AutoColumn style={{ padding: '0 24px' }}>
                 <RowFixed>
-                  <Text fontSize="14px">Route</Text>
+                  <Text fontSize="14px" color="white">Route</Text>
                   <QuestionHelper
                     text={TranslateString(
                       999,
