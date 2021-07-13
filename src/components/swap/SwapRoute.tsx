@@ -24,11 +24,11 @@ export default memo(function SwapRoute({ trade }: { trade: Trade }) {
           <Fragment key={i}>
             <Flex my="0.5rem" alignItems="center" style={{ flexShrink: 0 }}>
               <CurrencyLogo currency={token} size="1.5rem" />
-              <Text fontSize="14px" color="text" ml="0.5rem">
+              <Text fontSize="14px" color="white" ml="0.5rem">
                 {token.symbol}
               </Text>
             </Flex>
-            {isLastItem ? null : <ChevronRight color="textSubtle" />}
+            {isLastItem ? null : <ChevronRight color="white" />}
           </Fragment>
         )
       })}

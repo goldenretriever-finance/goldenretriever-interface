@@ -377,7 +377,7 @@ const Swap = () => {
                   <AutoColumn gap="4px">
                     {Boolean(trade) && (
                       <RowBetween align="center">
-                        <Text fontSize="14px">{TranslateString(1182, 'Price')}</Text>
+                        <Text color="white" fontSize="14px">{TranslateString(1182, 'Price')}</Text>
                         <TradePrice
                           price={trade?.executionPrice}
                           showInverted={showInverted}
