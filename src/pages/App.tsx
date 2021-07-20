@@ -14,11 +14,12 @@ import RemoveLiquidity from './RemoveLiquidity'
 import Swap from './Swap'
 import { RedirectPathToSwapOnly } from './Swap/redirects'
 import { EN, allLanguages } from '../constants/localisation/languageCodes'
-import { LanguageContext } from '../hooks/LanguageContext'
 import { TranslationsContext } from '../hooks/TranslationsContext'
+import {LanguageContext, LanguageObject} from '../hooks/LanguageContext'
 
 import Menu from '../components/Menu'
 import useGetDocumentTitlePrice from '../hooks/useGetDocumentTitlePrice'
+import Footer from "../components/Footer";
 
 const AppWrapper = styled.div`
   display: flex;
@@ -47,8 +48,8 @@ const Marginer = styled.div`
 const CACHE_KEY = 'pancakeSwapLanguage'
 
 export default function App() {
-  const [selectedLanguage, setSelectedLanguage] = useState<any>(undefined)
-  const [translatedLanguage, setTranslatedLanguage] = useState<any>(undefined)
+  const [selectedLanguage, setSelectedLanguage] = useState<LanguageObject>({ code: 'en', language: 'English' })
+  const [translatedLanguage, setTranslatedLanguage] = useState<LanguageObject>({ code: 'en', language: 'English' })
   const [translations, setTranslations] = useState<Array<any>>([])
   const apiKey = `${process.env.REACT_APP_CROWDIN_APIKEY}`
   const projectId = parseInt(`${process.env.REACT_APP_CROWDIN_PROJECTID}`)
@@ -146,6 +147,7 @@ export default function App() {
                   </Web3ReactManager>
                   <Marginer />
                 </BodyWrapper>
+                <Footer />
               </Menu>
             </TranslationsContext.Provider>
           </LanguageContext.Provider>

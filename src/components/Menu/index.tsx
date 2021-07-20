@@ -1,9 +1,7 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { useWeb3React } from '@web3-react/core'
 import {useWalletModal} from '@pancakeswap-libs/uikit'
 import {useLocation, Link} from "react-router-dom";
-import { LanguageContext } from 'hooks/LanguageContext'
-import useTheme from 'hooks/useTheme'
 import useGetLocalProfile from 'hooks/useGetLocalProfile'
 import useAuth from 'hooks/useAuth'
 import styled from 'styled-components'
@@ -160,10 +158,6 @@ const Menu: React.FC = ({ children }) => {
   const { account } = useWeb3React()
   const { login, logout } = useAuth()
   const [closedMenu, setClosedMenu] = useState(true);
-// eslint-disable-next-line
-  const { selectedLanguage, setSelectedLanguage } = useContext(LanguageContext)
-// eslint-disable-next-line
-  const { isDark, toggleTheme } = useTheme()
 // eslint-disable-next-line
   const profile = useGetLocalProfile()
   const {onPresentConnectModal, onPresentAccountModal} = useWalletModal(login, logout)
