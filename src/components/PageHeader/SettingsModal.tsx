@@ -3,7 +3,6 @@ import {Modal} from '@pancakeswap-libs/uikit'
 import styled from "styled-components";
 import SlippageToleranceSetting from './SlippageToleranceSetting'
 import TransactionDeadlineSetting from './TransactionDeadlineSetting'
-import AudioSetting from './AudioSetting'
 
 type SettingsModalProps = {
   onDismiss?: () => void
@@ -31,7 +30,6 @@ const SettingsModal = ({ onDismiss = defaultOnDismiss, translateString }: Settin
     <GRModal title={translateString(1200, 'Settings')} onDismiss={onDismiss}>
       <SlippageToleranceSetting translateString={translateString} />
       <TransactionDeadlineSetting translateString={translateString} />
-      <AudioSetting translateString={translateString} />
     </GRModal>
   )
 }
