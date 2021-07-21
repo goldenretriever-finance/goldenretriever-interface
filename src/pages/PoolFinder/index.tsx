@@ -1,6 +1,7 @@
 import { Currency, ETHER, JSBI, TokenAmount } from '@pancakeswap-libs/sdk'
 import React, { useCallback, useEffect, useState } from 'react'
 import { Button, ChevronDownIcon, AddIcon, CardBody, Text } from '@pancakeswap-libs/uikit'
+import styled from "styled-components";
 import CardNav from 'components/CardNav'
 import { LightCard } from 'components/Card'
 import { AutoColumn, ColumnCenter } from 'components/Column'
@@ -22,6 +23,23 @@ enum Fields {
   TOKEN0 = 0,
   TOKEN1 = 1,
 }
+
+const ButtonWrapper = styled.div`
+  background: linear-gradient( 94.17deg ,#0947e7 0%,#cf00f0 73.96%);
+  padding: 2px;
+  border-radius: 6px;
+  button {
+    height: 46px;
+    color: white;
+    font-size: 13px;
+    background: #000000;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 6px;
+    border: 2px;
+    border-image-slice: 1;
+    border-image: linear-gradient(94.17deg, #0947e7 0%, #cf00f0 73.96%);
+  }
+`
 
 export default function PoolFinder() {
   const { account } = useActiveWeb3React()
@@ -86,6 +104,7 @@ export default function PoolFinder() {
         <FindPoolTabs />
         <CardBody>
           <AutoColumn gap="md">
+            <ButtonWrapper>
             <Button
               onClick={() => {
                 setShowSearch(true)
@@ -97,11 +116,13 @@ export default function PoolFinder() {
             >
               {currency0 ? currency0.symbol : TranslateString(82, 'Select a Token')}
             </Button>
+            </ButtonWrapper>
 
             <ColumnCenter>
               <AddIcon color="textSubtle" />
             </ColumnCenter>
 
+            <ButtonWrapper>
             <Button
               onClick={() => {
                 setShowSearch(true)
@@ -113,6 +134,7 @@ export default function PoolFinder() {
             >
               {currency1 ? currency1.symbol : TranslateString(82, 'Select a Token')}
             </Button>
+            </ButtonWrapper>
 
             {hasPosition && (
               <ColumnCenter
