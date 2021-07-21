@@ -89,7 +89,7 @@ export default function PoolFinder() {
 
   const prerequisiteMessage = (
     <LightCard padding="45px 10px">
-      <Text style={{ textAlign: 'center' }}>
+      <Text color='white' style={{ textAlign: 'center' }}>
         {!account
           ? TranslateString(1174, 'Connect to a wallet to find pools')
           : TranslateString(208, 'Select a token to find your liquidity.')}
