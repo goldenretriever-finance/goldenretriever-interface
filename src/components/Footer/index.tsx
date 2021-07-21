@@ -1,9 +1,5 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import {LanguageContext} from "../../hooks/LanguageContext"
-import { allLanguages } from '../../constants/localisation/languageCodes'
-import useGetPriceData from '../../hooks/useGetPriceData'
-import { CAKE } from '../../constants'
 
 const StyledFooter = styled.div`
   position: fixed;
@@ -16,60 +12,6 @@ const StyledFooter = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-`
-
-const PriceWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  img {
-    width: 20px;
-    margin-right: 8px;
-  }
-  p {
-    font-weight: bold;
-    font-size: 14px;
-  }
-`
-const LanguageListModal = styled.div`
-  width: 210px;
-  height: 8em;
-  overflow: scroll;
-  background-color: #fff;
-  position: absolute;
-  bottom: 30px;
-  display: none;
-  &:hover {
-    display: block;
-  }
-`
-
-const LanguageSetting = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 32px;
-  &:hover {
-    ${LanguageListModal} {
-      display: block;
-    }
-  }
-  p {
-    color: #7a6eaa;
-    cursor: pointer;
-    min-width: 120px;
-  }
-`
-const StyledButton = styled.button`
-  width: 100%;
-  border: 0;
-  background-color: #fff;
-  cursor: pointer;
-  color: #7a6eaa;
-  list-style: none;
-  text-align: center;
-  font-weight: bold;
 `
 
 const SocialWrapper = styled.div`
@@ -104,9 +46,6 @@ const TwitterLink = styled.a`
 `
 
 const Footer = () => {
-  const { translatedLanguage, setTranslatedLanguage } = useContext(LanguageContext)
-  const priceData = useGetPriceData()
-  const cakePriceUsd = priceData ? Number(priceData.data[CAKE.address].price) : undefined
   const openTelegram = (): void => {
     // eslint-disable-next-line no-console
     console.log('国を選択するポップアップ作成→telegramに遷移処理追加')
@@ -114,19 +53,6 @@ const Footer = () => {
 
   return (
     <StyledFooter>
-      <PriceWrapper>
-        <img src="/images/footer_dog_icon.png" alt="Goldenretriever" />
-        <p>${cakePriceUsd}</p>
-      </PriceWrapper>
-      <LanguageSetting>
-        {/* FIXME 言語アイコン切り出せるようになったら追加 */}
-        <p>{translatedLanguage.language}</p>
-        <LanguageListModal>
-          {allLanguages.map((language) => (
-            <StyledButton onClick={() => setTranslatedLanguage(language)}>{language.language}</StyledButton>
-          ))}
-        </LanguageListModal>
-      </LanguageSetting>
       <SocialWrapper>
         <TelegramButton onClick={() => openTelegram()}>
           <img src="/images/footer_telegram.png" alt="telegram" />
