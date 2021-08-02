@@ -31,7 +31,7 @@ const TelegramButton = styled.div`
     height: 12.26px;
   }
 `
-const TwitterLink = styled.a`
+const SnsLink = styled.a`
   width: 26px;
   height: 26px;
   background-color: #fff;
@@ -39,6 +39,7 @@ const TwitterLink = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 17px;
   img {
     width: 16px;
     height: 13px;
@@ -54,12 +55,18 @@ const Footer = () => {
   return (
     <StyledFooter>
       <SocialWrapper>
-        <TelegramButton onClick={() => openTelegram()}>
+        <SnsLink href="https://t.me/joinchat/o98mgf0Nqdg5ZGZl" target="_blank" rel="noreferrer">
           <img src="/images/footer_telegram.png" alt="telegram" />
-        </TelegramButton>
-        <TwitterLink href="https://twitter.com/" target="_blank" rel="noreferrer">
-          <img src="/images/footer_twitter.png" alt="telegram" />
-        </TwitterLink>
+        </SnsLink>
+        <SnsLink href="https://twitter.com/retrievercoin" target="_blank" rel="noreferrer">
+          <img src="/images/footer_twitter.png" alt="twitter" />
+        </SnsLink>
+        <SnsLink href="https://line.me/ti/g2/X-HO6r5raOkKZwDSPv3lEg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noreferrer">
+          <img src="/images/footer_line.png" alt="line" />
+        </SnsLink>
+        <SnsLink href="https://open.kakao.com/o/g1c27qqd" target="_blank" rel="noreferrer">
+          <img src="/images/footer_kakao.png" alt="kakao" />
+        </SnsLink>
       </SocialWrapper>
     </StyledFooter>
   )

@@ -21,7 +21,7 @@ const ActiveText = styled.div`
 `
 
 const StyledArrowLeft = styled(ArrowLeft)`
-  color: ${({ theme }) => theme.colors.text};
+  color: white;
 `
 
 export function FindPoolTabs() {

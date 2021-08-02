@@ -1,5 +1,5 @@
 import { parseUnits } from '@ethersproject/units'
-import { Currency, CurrencyAmount, ETHER, JSBI, Token, TokenAmount, Trade } from '@pancakeswap-libs/sdk'
+import { Currency, CurrencyAmount, ETHER, JSBI, Token, TokenAmount, Trade } from '@goldenretriever-libs/sdk'
 import { ParsedQs } from 'qs'
 import { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -86,10 +86,16 @@ export function tryParseAmount(value?: string, currency?: Currency): CurrencyAmo
   return undefined
 }
 
+// const BAD_RECIPIENT_ADDRESSES: string[] = [
+//   '0xD80E0618a4b0d26A61f73C27373BfB7a654C5415', // v2 factory
+//   '0xf164fC0Ec4E93095b804a4795bBe1e041497b92a', // v2 router 01
+//   '0x05fF2B0DB69458A0750badebc4f9e13aDd608C7F', // v2 router 02
+// ]
+
 const BAD_RECIPIENT_ADDRESSES: string[] = [
-  '0x2886cfE87a10F917ba275782baa00cA20F22a2d6', // v2 factory
+  '0xD80E0618a4b0d26A61f73C27373BfB7a654C5415', // v2 factory
   '0xf164fC0Ec4E93095b804a4795bBe1e041497b92a', // v2 router 01
-  '0x05B5B37565AC01ba5229F355C3667F2bb15cC18b', // v2 router 02
+  '0xa38d901ce3D664a0607FB7f4665cCa3b743f5502', // v2 router 02
 ]
 
 /**

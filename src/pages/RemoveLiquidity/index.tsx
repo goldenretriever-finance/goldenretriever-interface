@@ -3,7 +3,7 @@ import styled, { ThemeContext } from 'styled-components'
 import { splitSignature } from '@ethersproject/bytes'
 import { Contract } from '@ethersproject/contracts'
 import { TransactionResponse } from '@ethersproject/providers'
-import { Currency, currencyEquals, ETHER, Percent, WETH } from '@pancakeswap-libs/sdk'
+import { Currency, currencyEquals, ETHER, Percent, WETH } from '@goldenretriever-libs/sdk'
 import { Button, Flex, Text } from '@pancakeswap-libs/uikit'
 import { ArrowDown, Plus } from 'react-feather'
 import { RouteComponentProps } from 'react-router'
@@ -123,7 +123,7 @@ export default function RemoveLiquidity({
       { name: 'verifyingContract', type: 'address' },
     ]
     const domain = {
-      name: 'Pancake LPs',
+      name: 'Goldenretrieve LPs',
       version: '1',
       chainId,
       verifyingContract: pair.liquidityToken.address,
@@ -335,7 +335,7 @@ export default function RemoveLiquidity({
           </RowFixed>
         </RowBetween>
         <RowFixed>
-          <Plus size="16" color={theme.colors.textSubtle} />
+          <Plus size="16" color="white" />
         </RowFixed>
         <RowBetween align="flex-end">
           <Text fontSize="24px">{parsedAmounts[Field.CURRENCY_B]?.toSignificant(6)}</Text>
@@ -347,7 +347,7 @@ export default function RemoveLiquidity({
           </RowFixed>
         </RowBetween>
 
-        <Text small color="textSubtle" textAlign="left" padding="12px 0 0 0" style={{ fontStyle: 'italic' }}>
+        <Text small color="white" textAlign="left" padding="12px 0 0 0" style={{ fontStyle: 'italic' }}>
           {`Output is estimated. If the price changes by more than ${
             allowedSlippage / 100
           }% your transaction will revert.`}
@@ -360,7 +360,7 @@ export default function RemoveLiquidity({
     return (
       <>
         <RowBetween>
-          <Text color="textSubtle">{`LP ${currencyA?.symbol}/${currencyB?.symbol}`} Burned</Text>
+          <Text color="white">{`LP ${currencyA?.symbol}/${currencyB?.symbol}`} Burned</Text>
           <RowFixed>
             <DoubleCurrencyLogo currency0={currencyA} currency1={currencyB} margin />
             <Text>{parsedAmounts[Field.LIQUIDITY]?.toSignificant(6)}</Text>
@@ -369,14 +369,14 @@ export default function RemoveLiquidity({
         {pair && (
           <>
             <RowBetween>
-              <Text color="textSubtle">{TranslateString(1182, 'Price')}</Text>
-              <Text>
+              <Text color="white">{TranslateString(1182, 'Price')}</Text>
+              <Text color="white">
                 1 {currencyA?.symbol} = {tokenA ? pair.priceOf(tokenA).toSignificant(6) : '-'} {currencyB?.symbol}
               </Text>
             </RowBetween>
             <RowBetween>
               <div />
-              <Text>
+              <Text color="white">
                 1 {currencyB?.symbol} = {tokenB ? pair.priceOf(tokenB).toSignificant(6) : '-'} {currencyA?.symbol}
               </Text>
             </RowBetween>
@@ -468,7 +468,7 @@ export default function RemoveLiquidity({
               <OutlineCard>
                 <AutoColumn>
                   <RowBetween>
-                    <Text>Amount</Text>
+                    <Text color="white">Amount</Text>
                     <ClickableText
                       onClick={() => {
                         setShowDetailed(!showDetailed)
@@ -478,7 +478,7 @@ export default function RemoveLiquidity({
                     </ClickableText>
                   </RowBetween>
                   <Flex justifyContent="start">
-                    <Text fontSize="64px">{formattedAmounts[Field.LIQUIDITY_PERCENT]}%</Text>
+                    <Text fontSize="64px" color="white">{formattedAmounts[Field.LIQUIDITY_PERCENT]}%</Text>
                   </Flex>
                   {!showDetailed && (
                     <>
@@ -523,25 +523,25 @@ export default function RemoveLiquidity({
             {!showDetailed && (
               <>
                 <ColumnCenter>
-                  <ArrowDown size="16" color={theme.colors.textSubtle} />
+                  <ArrowDown size="16" color="white" />
                 </ColumnCenter>
                 <Body>
                   <OutlineCard>
                     <AutoColumn gap="10px">
                       <RowBetween>
-                        <Text fontSize="24px">{formattedAmounts[Field.CURRENCY_A] || '-'}</Text>
+                        <Text color="white" fontSize="24px">{formattedAmounts[Field.CURRENCY_A] || '-'}</Text>
                         <RowFixed>
                           <CurrencyLogo currency={currencyA} style={{ marginRight: '12px' }} />
-                          <Text fontSize="24px" id="remove-liquidity-tokena-symbol">
+                          <Text color="white" fontSize="24px" id="remove-liquidity-tokena-symbol">
                             {currencyA?.symbol}
                           </Text>
                         </RowFixed>
                       </RowBetween>
                       <RowBetween>
-                        <Text fontSize="24px">{formattedAmounts[Field.CURRENCY_B] || '-'}</Text>
+                        <Text color="white" fontSize="24px">{formattedAmounts[Field.CURRENCY_B] || '-'}</Text>
                         <RowFixed>
                           <CurrencyLogo currency={currencyB} style={{ marginRight: '12px' }} />
-                          <Text fontSize="24px" id="remove-liquidity-tokenb-symbol">
+                          <Text color="white" fontSize="24px" id="remove-liquidity-tokenb-symbol">
                             {currencyB?.symbol}
                           </Text>
                         </RowFixed>
@@ -588,7 +588,7 @@ export default function RemoveLiquidity({
                     id="liquidity-amount"
                   />
                   <ColumnCenter>
-                    <ArrowDown size="16" color={theme.colors.textSubtle} />
+                    <ArrowDown size="16" color="white" />
                   </ColumnCenter>
                   <CurrencyInputPanel
                     hideBalance
@@ -620,15 +620,21 @@ export default function RemoveLiquidity({
               {pair && (
                 <div style={{ padding: '24px' }}>
                   <Flex justifyContent="space-between" mb="8px">
+                    <Text color="white">
                     Price:
+                    </Text>
                     <div>
+                    <Text color="white">
                       1 {currencyA?.symbol} = {tokenA ? pair.priceOf(tokenA).toSignificant(6) : '-'} {currencyB?.symbol}
+                      </Text>
                     </div>
                   </Flex>
                   <Flex justifyContent="space-between">
                     <div />
                     <div>
+                    <Text color="white">
                       1 {currencyB?.symbol} = {tokenB ? pair.priceOf(tokenB).toSignificant(6) : '-'} {currencyA?.symbol}
+                      </Text>
                     </div>
                   </Flex>
                 </div>

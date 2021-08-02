@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import { BigNumber } from '@ethersproject/bignumber'
 import { TransactionResponse } from '@ethersproject/providers'
-import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from '@pancakeswap-libs/sdk'
+import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from '@goldenretriever-libs/sdk'
 import {Button, CardBody, Text as UIKitText, Image} from '@pancakeswap-libs/uikit'
 import { RouteComponentProps } from 'react-router-dom'
 import { LightCard } from 'components/Card'
@@ -147,7 +147,9 @@ export default function AddLiquidity({
         account,
         deadlineFromNow,
       ]
+
       value = BigNumber.from((tokenBIsBNB ? parsedAmountB : parsedAmountA).raw.toString())
+      
     } else {
       estimate = router.estimateGas.addLiquidity
       method = router.addLiquidity

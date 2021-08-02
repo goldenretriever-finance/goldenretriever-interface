@@ -1,4 +1,4 @@
-import { Token, TokenAmount } from '@pancakeswap-libs/sdk'
+import { Token, TokenAmount } from '@goldenretriever-libs/sdk'
 import { useMemo } from 'react'
 
 import { useTokenContract } from '../hooks/useContract'
