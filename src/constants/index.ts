@@ -1,7 +1,6 @@
 import { ChainId, JSBI, Percent, Token, WETH } from '@goldenretriever-libs/sdk'
 
-// export const ROUTER_ADDRESS = '0x05fF2B0DB69458A0750badebc4f9e13aDd608C7F'
-export const ROUTER_ADDRESS = '0xa38d901ce3D664a0607FB7f4665cCa3b743f5502'
+export const ROUTER_ADDRESS = '0xEfd9281E2fAe0fC1538B04b3CC16A602D57e4D07'
 
 // a list of tokens by chain
 type ChainTokenList = {

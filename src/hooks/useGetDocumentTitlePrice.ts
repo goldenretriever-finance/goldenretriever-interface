@@ -16,7 +16,7 @@ const useGetDocumentTitlePrice = () => {
   //       })}`
 
   useEffect(() => {
-    document.title = `GoldenRetriever`
+    document.title = `GoldenRetriever Finance`
   }, [])
 
   // useEffect(() => {

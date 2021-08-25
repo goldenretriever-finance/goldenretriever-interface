@@ -40,6 +40,7 @@
     "src"
   ],
   "ignoreRules": {
-	  "TS2322": true
+	  "TS2322": true,
+	  "TS2774": true
   }
 }
